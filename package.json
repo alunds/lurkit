@@ -1,0 +1,18 @@
+{
+  "name": "lurkit",
+  "version": "1.0.0",
+  "description": "Monitor your favourite subreddits in a self-updating single page.",
+  "main": "index.js",
+  "dependencies": {
+    "6to5ify": "^4.1.1",
+    "browserify": "^9.0.3",
+    "react": "^0.13.1",
+    "watchify": "^2.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "watch": "watchify -t 6to5ify ./src/app.jsx -o ./dist/bundle.js -v"
+  },
+  "author": "Andy Lundy",
+  "license": "ISC"
+}

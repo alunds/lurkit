@@ -1,0 +1,21 @@
+html,body {
+    font-family:'Capriola',sans-serif;
+    font-size: .83em;
+    background-color: #fcfcfc;
+ }
+a {
+    text-decoration:none;
+}
+a:hover {
+    text-decoration:underline;
+}
+div#app {
+    padding: 10px 10px 10px 10px;
+}
+div .reddit {
+    background-color: #f0f0f0;
+    padding: 5px 5px 5px 5px;
+}
+div .row {
+    margin-bottom: 5px;
+}
