@@ -51,10 +51,12 @@ var Reddit = React.createClass({
 
 var RedditItemList = React.createClass({
     render: function() {
-        var getThumbnail = function(thumbnail)
+        var getThumbnail = function(url)
         {
-            return (thumbnail != "" && thumbnail != "self") ?
-                <img src={thumbnail} className="u-max-full-width" /> :
+            return (url != "" &&
+                    url != "self" &&
+                    url != "nsfw") ?
+                <img src={url} className="u-max-full-width" /> :
                 <span>&nbsp;</span>;
         };
 
@@ -70,7 +72,7 @@ var RedditItemList = React.createClass({
                     <div className="eight columns">
                         <strong><a href={item.data.url}>{item.data.title}</a></strong>
                     </div>
-                    <div className="two columns">
+                    <div className="two columns comments">
                         <a href={REDDIT_BASE_URL.concat(item.data.permalink)}>{item.data.num_comments} comments</a>
                     </div>
                 </div>

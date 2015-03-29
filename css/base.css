@@ -2,20 +2,31 @@ html,body {
     font-family:'Capriola',sans-serif;
     font-size: .83em;
     background-color: #fcfcfc;
- }
+}
 a {
     text-decoration:none;
 }
 a:hover {
     text-decoration:underline;
 }
+h6 {
+    text-align: center;
+}
 div#app {
     padding: 10px 10px 10px 10px;
 }
 div .reddit {
-    background-color: #f0f0f0;
+    background-color: #f6f6f6;
     padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    border: 2px solid #f0f0f0;
 }
-div .row {
+div .comments {
+    font-size: .78em;
+}
+div .reddit .row {
     margin-bottom: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
 }
