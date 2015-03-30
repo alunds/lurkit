@@ -1,12 +1,11 @@
 var React = require("react");
 
 var getColumnSpan = require('./utils/getColumnSpan');
-var {REDDIT_BASE_URL} = require('./utils/constants');
-var {REDDIT_CONFIG} = require('./utils/constants');
+var constants = require('./utils/constants');
 
 var App = React.createClass({
     render: function() {
-        var reddits = REDDIT_CONFIG.map(function (reddit) {
+        var reddits = constants.REDDIT_CONFIG.map(function (reddit) {
             return (
                 <Reddit title={reddit.title} url={reddit.url} pollInterval={reddit.interval}/>
             );
@@ -41,7 +40,7 @@ var Reddit = React.createClass({
     },
     render: function() {
         return (
-            <div className={getColumnSpan(REDDIT_CONFIG.length, 12)}>
+            <div className={getColumnSpan(constants.REDDIT_CONFIG.length, 12)}>
                 <h6>{this.props.title}</h6>
                 <RedditItemList data={this.state.data} />
             </div>
@@ -73,7 +72,7 @@ var RedditItemList = React.createClass({
                         <strong><a href={item.data.url}>{item.data.title}</a></strong>
                     </div>
                     <div className="two columns comments">
-                        <a href={REDDIT_BASE_URL.concat(item.data.permalink)}>{item.data.num_comments} comments</a>
+                        <a href={constants.REDDIT_BASE_URL.concat(item.data.permalink)}>{item.data.num_comments} comments</a>
                     </div>
                 </div>
             );
