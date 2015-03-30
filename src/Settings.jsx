@@ -53,7 +53,7 @@ var SettingsForm = React.createClass({
                         <input type="text" placeholder="Subreddit url..." ref="url" />
                     </div>
                     <div className="one column">
-                        <input type="submit" value="Post" />
+                        <input type="submit" value="Save" />
                     </div>
                 </form>
             </div>

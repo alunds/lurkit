@@ -75,7 +75,8 @@ var SubredditItemList = React.createClass({
         {
             return (url != "" &&
                     url != "self" &&
-                    url != "nsfw") ?
+                    url != "nsfw" &&
+                    url != "default") ?
                 <img src={url} className="u-max-full-width" /> :
                 <span>&nbsp;</span>;
         };

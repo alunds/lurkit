@@ -13,6 +13,11 @@ var SettingsStore = {
         this.save();
     },
 
+    remove(index) {
+        this.redditConfig.splice(index, 1);
+        this.save();
+    },
+
     load() {
         var json = storage.get(STORAGE_KEY);
         if (json) {
