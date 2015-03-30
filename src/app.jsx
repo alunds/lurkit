@@ -1,32 +1,48 @@
 var React = require("react");
 
 var SettingsStore = require('./stores/settingsStore');
-
+var Settings = require('./Settings.jsx');
 var getColumnSpan = require('./utils/getColumnSpan');
 var constants = require('./utils/constants');
 
+SettingsStore.load();
+
 var App = React.createClass({
-    componentDidMount: function() {
-        SettingsStore.load();
+    handleSettingsChanged: function(data) {
+        this.setProps({data: data});
+    },
+    componentWillMount: function() {
+        //SettingsStore.load();
     },
     render: function() {
-        var reddits = SettingsStore.redditConfig.map(function (reddit) {
-            return (
-                <Reddit title={reddit.title} url={reddit.url} pollInterval={reddit.interval}/>
-            );
-        });
         return (
-            <div className="row">
-                {reddits}
+            <div>
+                <Settings data={this.props.data} onSettingsChanged={this.handleSettingsChanged} />
+                <Subreddits data={this.props.data} />
             </div>
         );
     }
 });
 
-var Reddit = React.createClass({
+var Subreddits = React.createClass({
+    render: function() {
+        var subreddits = this.props.data.map(function (subreddit) {
+            return (
+                <Subreddit title={subreddit.title} url={subreddit.url} pollInterval={subreddit.interval}/>
+            );
+        });
+        return (
+            <div className="row">
+                {subreddits}
+            </div>
+        );
+    }
+});
+
+var Subreddit = React.createClass({
     loadItemsFromServer: function() {
         $.ajax({
-            url: this.props.url,
+            url: this.props.url.concat('.json'),
             dataType: 'json',
             success: function(data) {
                 this.setState({data: data.data.children});
@@ -47,13 +63,13 @@ var Reddit = React.createClass({
         return (
             <div className={getColumnSpan(SettingsStore.redditConfig.length, 12)}>
                 <h6>{this.props.title}</h6>
-                <RedditItemList data={this.state.data} />
+                <SubredditItemList data={this.state.data} />
             </div>
         );
     }
 });
 
-var RedditItemList = React.createClass({
+var SubredditItemList = React.createClass({
     render: function() {
         var getThumbnail = function(url)
         {
@@ -90,5 +106,5 @@ var RedditItemList = React.createClass({
 });
 
 React.render(
-    <App />,
+    <App data={SettingsStore.redditConfig} />,
     document.getElementById('app'));

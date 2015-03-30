@@ -4,9 +4,14 @@ var STORAGE_KEY = 'settings';
 
 var SettingsStore = {
     redditConfig:[
-        {title:"Front", url:"http://www.reddit.com/.json", interval:10000},
-        {title:"World News", url:"http://www.reddit.com/r/worldnews/.json", interval:10000}
+        {title:"Front", url:"http://www.reddit.com/", interval:10000},
+        {title:"World News", url:"http://www.reddit.com/r/worldnews/", interval:10000}
     ],
+
+    addItem(item) {
+        this.redditConfig.push(item);
+        this.save();
+    },
 
     load() {
         var json = storage.get(STORAGE_KEY);
