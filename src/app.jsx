@@ -1,11 +1,16 @@
 var React = require("react");
 
+var SettingsStore = require('./stores/settingsStore');
+
 var getColumnSpan = require('./utils/getColumnSpan');
 var constants = require('./utils/constants');
 
 var App = React.createClass({
+    componentDidMount: function() {
+        SettingsStore.load();
+    },
     render: function() {
-        var reddits = constants.REDDIT_CONFIG.map(function (reddit) {
+        var reddits = SettingsStore.redditConfig.map(function (reddit) {
             return (
                 <Reddit title={reddit.title} url={reddit.url} pollInterval={reddit.interval}/>
             );
@@ -40,7 +45,7 @@ var Reddit = React.createClass({
     },
     render: function() {
         return (
-            <div className={getColumnSpan(constants.REDDIT_CONFIG.length, 12)}>
+            <div className={getColumnSpan(SettingsStore.redditConfig.length, 12)}>
                 <h6>{this.props.title}</h6>
                 <RedditItemList data={this.state.data} />
             </div>
