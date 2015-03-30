@@ -11,9 +11,6 @@ var App = React.createClass({
     handleSettingsChanged: function(data) {
         this.setProps({data: data});
     },
-    componentWillMount: function() {
-        //SettingsStore.load();
-    },
     render: function() {
         return (
             <div>
