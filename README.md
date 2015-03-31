@@ -12,7 +12,3 @@ Download [Node.js](https://nodejs.org/) which comes with `npm`.
 
 * `npm install`
 * `npm run watch`
-
-## Configure ##
-
-At the moment you just need to modify `/src/utils/constants.js` to configure the subreddits.

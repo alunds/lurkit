@@ -9,13 +9,23 @@ var SettingsStore = {
     ],
 
     addItem(item) {
-        this.redditConfig.push(item);
-        this.save();
+        if (this.redditConfig.length < 4) {
+            this.redditConfig.push(item);
+            this.save();
+        }
+        else {
+            alert('Whoa! Slow down there, partner.');
+        }
     },
 
     remove(index) {
-        this.redditConfig.splice(index, 1);
-        this.save();
+        if (this.redditConfig.length > 1) {
+            this.redditConfig.splice(index, 1);
+            this.save();
+        }
+        else {
+            alert('I don\'t think that\'s a good idea.');
+        }
     },
 
     load() {

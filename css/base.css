@@ -1,6 +1,6 @@
 html,body {
     font-family:'Capriola',sans-serif;
-    font-size: .83em;
+    font-size: .85em;
     background-color: #fcfcfc;
 }
 a {
@@ -12,10 +12,14 @@ a:hover {
 h6 {
     text-align: center;
 }
+form {
+    margin: 0;
+}
 div#app {
     padding: 10px 10px 10px 10px;
 }
 div .reddit {
+    margin-bottom: 25px;
     background-color: #f6f6f6;
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
@@ -29,4 +33,24 @@ div .reddit .row {
     background-color: #f0f0f0;
     border-radius: 5px;
     border: 1px solid #e0e0e0;
+}
+div .settings {
+    background-color: #f6f6f6;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    border: 2px solid #f0f0f0;
+}
+div .right {
+    text-align: right;
+}
+input[type="submit"] {
+    padding: 0 10px;
+}
+input[type="submit"], input[type="text"] {
+    height: 30px;
+    line-height: 30px;
+}
+hr {
+    margin-top:1rem;
+    margin-bottom:1rem;
 }

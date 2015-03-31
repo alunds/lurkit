@@ -1,5 +1,6 @@
 function getColumnSpan(numberOfReddits, totalNumberOfColumns) {
-    var numberWord = numberToWord(totalNumberOfColumns / numberOfReddits);
+    var roundedNumber = Math.round(totalNumberOfColumns / numberOfReddits);
+    var numberWord = numberToWord(roundedNumber);
     return numberWord.concat(" columns reddit");
 }
 

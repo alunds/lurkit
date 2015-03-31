@@ -14,8 +14,8 @@ var App = React.createClass({
     render: function() {
         return (
             <div>
-                <Settings data={this.props.data} onSettingsChanged={this.handleSettingsChanged} />
                 <Subreddits data={this.props.data} />
+                <Settings data={this.props.data} onSettingsChanged={this.handleSettingsChanged} />
             </div>
         );
     }

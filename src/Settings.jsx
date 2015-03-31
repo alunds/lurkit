@@ -14,13 +14,13 @@ var Settings = React.createClass({
         var items = this.props.data.map(function (item, i) {
             return (
                 <div key={i} className="row">
-                    <div className="two columns">
+                    <div className="five columns">
                         {item.title}
                     </div>
-                    <div className="two columns">
-                        {item.url}
+                    <div className="five columns">
+                        <a href={item.url}>{item.url}</a>
                     </div>
-                    <div className="one column">
+                    <div className="two columns right">
                         <RemoveSubreddit index={i} onRemoveSubreddit={this.handleRemoveSubreddit} />
                     </div>
                 </div>
@@ -28,8 +28,9 @@ var Settings = React.createClass({
         }.bind(this));
 
         return (
-            <div>
+            <div className="container settings">
                 {items}
+                <hr />
                 <AddSubredditForm onFormSubmit={this.handleAddSubreddit} />
             </div>
         );
@@ -43,37 +44,46 @@ var RemoveSubreddit = React.createClass({
         this.props.onRemoveSubreddit();
     },
     render:function(){
-        return <a href onClick={this.handleClick}>X</a>;
+        return <a href onClick={this.handleClick}>Remove</a>;
     }
 });
 
 var AddSubredditForm = React.createClass({
     handleSubmit: function(e) {
         e.preventDefault();
+
         var title = React.findDOMNode(this.refs.title).value.trim();
         var url = React.findDOMNode(this.refs.url).value.trim();
+
         if (!title || !url) {
             return;
         }
+        else if (url.length < 22 || url.substring(0, 22) != "http://www.reddit.com/")
+        {
+            alert("Invalid reddit url (use 'http://www.reddit.com/*')");
+            return;
+        }
+
         this.props.onFormSubmit({title: title, url: url});
+
         React.findDOMNode(this.refs.title).value = '';
         React.findDOMNode(this.refs.url).value = '';
     },
     render: function() {
         return (
-            <div className="row">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="two columns">
-                        <input type="text" placeholder="Subreddit title..." ref="title" />
+            <form id="addSubredditForm" onSubmit={this.handleSubmit}>
+                <div className="row">
+                    <div className="five columns">
+                        <input type="text" placeholder="Subreddit title..." ref="title" className="u-full-width" />
                     </div>
-                    <div className="two columns">
-                        <input type="text" placeholder="Subreddit url..." ref="url" />
+                    <div className="five columns">
+                        <input type="text" placeholder="Subreddit url..." ref="url" className="u-full-width" />
                     </div>
-                    <div className="one column">
+                    <div className="two columns right">
                         <input type="submit" value="Add" />
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         );
     }
 });
