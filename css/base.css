@@ -1,13 +1,15 @@
 html,body {
     font-family:'Capriola',sans-serif;
-    font-size: .85em;
+    font-size: .92em;
     background-color: #fcfcfc;
 }
 a {
+    color: #0088FF;
     text-decoration:none;
 }
 a:hover {
-    text-decoration:underline;
+    color: #58b2ff;
+    text-decoration:none;
 }
 h6 {
     text-align: center;
@@ -26,13 +28,17 @@ div .reddit {
     border: 2px solid #f0f0f0;
 }
 div .comments {
-    font-size: .78em;
+    font-size: .65em;
+    overflow:hidden;
 }
 div .reddit .row {
     margin-bottom: 5px;
     background-color: #f0f0f0;
     border-radius: 5px;
     border: 1px solid #e0e0e0;
+}
+div .reddit .row:hover{
+    background-color: #f6f6f6;
 }
 div .settings {
     background-color: #f6f6f6;

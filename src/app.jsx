@@ -70,19 +70,19 @@ var SubredditItemList = React.createClass({
     render: function() {
         var getThumbnail = function(url)
         {
-            return (url != "" &&
-                    url != "self" &&
-                    url != "nsfw" &&
-                    url != "default") ?
-                <img src={url} className="u-max-full-width" /> :
-                <span>&nbsp;</span>;
+            return (url == "" ||
+                    url == "self" ||
+                    url == "nsfw" ||
+                    url == "default") ?
+                <span>&nbsp;</span> :
+                <img src={url} className="u-max-full-width" />;
         };
 
         var items = this.props.data.map(function (item) {
             return (
                 <div className="row">
                     <div className="one columns">
-                        {item.data.score}
+                        <i>{item.data.score}</i>
                     </div>
                     <div className="one columns">
                         {getThumbnail(item.data.thumbnail)}
