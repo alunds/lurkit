@@ -1,3 +1,5 @@
+var React = require("react");
+
 var SettingsStore = require('./stores/SettingsStore');
 var getColumnSpan = require('./utils/getColumnSpan');
 var getThumbnail = require('./utils/getThumbnail');
