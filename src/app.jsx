@@ -23,9 +23,9 @@ var App = React.createClass({
 
 var Subreddits = React.createClass({
     render: function() {
-        var subreddits = this.props.data.map(function (subreddit) {
+        var subreddits = this.props.data.map(function (subreddit, i) {
             return (
-                <Subreddit title={subreddit.title} url={subreddit.url} pollInterval={subreddit.interval}/>
+                <Subreddit key={i} title={subreddit.title} url={subreddit.url} pollInterval={subreddit.interval}/>
             );
         });
         return (
@@ -78,9 +78,9 @@ var SubredditItemList = React.createClass({
                 <img src={url} className="u-max-full-width" />;
         };
 
-        var items = this.props.data.map(function (item) {
+        var items = this.props.data.map(function (item, i) {
             return (
-                <div className="row">
+                <div key={i} className="row">
                     <div className="one columns">
                         <i>{item.data.score}</i>
                     </div>
