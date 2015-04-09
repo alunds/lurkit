@@ -5,9 +5,9 @@ var constants = require('./utils/constants');
 
 var Subreddits = React.createClass({
     render: function() {
-        var subreddits = this.props.data.map(function (subreddit, i) {
+        var subreddits = this.props.data.map(function (subreddit) {
             return (
-                <Subreddit key={i} title={subreddit.title} url={subreddit.url} interval={subreddit.interval}/>
+                <Subreddit key={subreddit.title} title={subreddit.title} url={subreddit.url} interval={subreddit.interval} />
             );
         });
         return (
