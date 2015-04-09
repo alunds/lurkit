@@ -61,8 +61,6 @@ input[type="url"],
 input[type="number"] {
     height: 30px;
     line-height: 30px;
-}
-input[type="number"] {
     padding: 0 10px 0;
 }
 hr {
