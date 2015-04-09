@@ -4,8 +4,8 @@ html,body {
     background-color: #fcfcfc;
 }
 a {
-    color: #0088FF;
     text-decoration:none;
+    color: #0088FF;
 }
 a:hover {
     color: #58b2ff;

@@ -21,7 +21,7 @@ var Settings = React.createClass({
                         <a href={item.url}>{item.url}</a>
                     </div>
                     <div className="two columns">
-                        {item.interval / 1000} seconds
+                        {item.interval} seconds
                     </div>
                     <div className="two columns right">
                         <RemoveSubreddit index={i} onRemoveSubreddit={this.handleRemoveSubreddit} />
@@ -66,12 +66,12 @@ var AddSubredditForm = React.createClass({
             alert("Invalid reddit url (use 'http://www.reddit.com/*')");
             return;
         }
-        if (isNaN(interval) || interval < 10) {
-            alert("Interval should be more than 10 seconds.");
+        if (isNaN(interval) || interval < 10 || interval > 600) {
+            alert("Interval should be more than 10 seconds and less than 600 seconds.");
             return;
         }
 
-        this.props.onFormSubmit({title: title, url: url, interval: interval * 1000});
+        this.props.onFormSubmit({title: title, url: url, interval: interval});
 
         React.findDOMNode(this.refs.title).value = '';
         React.findDOMNode(this.refs.url).value = '';

@@ -6,7 +6,7 @@ var Subreddits = React.createClass({
     render: function() {
         var subreddits = this.props.data.map(function (subreddit, i) {
             return (
-                <Subreddit key={i} title={subreddit.title} url={subreddit.url} pollInterval={subreddit.interval}/>
+                <Subreddit key={i} title={subreddit.title} url={subreddit.url} interval={subreddit.interval}/>
             );
         });
         return (
@@ -35,7 +35,7 @@ var Subreddit = React.createClass({
     },
     componentDidMount: function() {
         this.loadItemsFromServer();
-        setInterval(this.loadItemsFromServer, this.props.pollInterval);
+        setInterval(this.loadItemsFromServer, this.props.interval * 1000);
     },
     render: function() {
         return (
