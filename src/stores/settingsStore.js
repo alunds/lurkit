@@ -3,6 +3,7 @@ var storage = require('../utils/storage');
 var STORAGE_KEY = 'settings';
 
 var SettingsStore = {
+    // default configuration
     redditConfig:[
         {title:"Front", url:"http://www.reddit.com/", interval:60000},
         {title:"World News", url:"http://www.reddit.com/r/worldnews/", interval:60000}
@@ -14,7 +15,7 @@ var SettingsStore = {
             this.save();
         }
         else {
-            alert('Whoa! Slow down there, partner.');
+            alert('We should limit ourselves to a maximum of four subreddits for now.');
         }
     },
 
@@ -24,7 +25,7 @@ var SettingsStore = {
             this.save();
         }
         else {
-            alert('I don\'t think that\'s a good idea.');
+            alert('We should keep at least one subreddit active.');
         }
     },
 

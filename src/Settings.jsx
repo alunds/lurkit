@@ -1,6 +1,6 @@
 var React = require("react");
 
-var SettingsStore = require('./stores/settingsStore');
+var SettingsStore = require('./stores/SettingsStore');
 
 var Settings = React.createClass({
     handleAddSubreddit: function(subreddit) {
