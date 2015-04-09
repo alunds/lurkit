@@ -59,15 +59,8 @@ var AddSubredditForm = React.createClass({
         var url = React.findDOMNode(this.refs.url).value.trim();
         var interval = React.findDOMNode(this.refs.interval).value.trim();
 
-        if (!title || !url) {
-            return;
-        }
-        else if (url.length < 22 || url.substring(0, 22) != "http://www.reddit.com/") {
-            alert("Invalid reddit url (use 'http://www.reddit.com/*')");
-            return;
-        }
-        if (isNaN(interval) || interval < 10 || interval > 600) {
-            alert("Interval should be more than 10 seconds and less than 600 seconds.");
+        if (url.length < 22 || url.substring(0, 22) != "http://www.reddit.com/") {
+            alert("Invalid reddit url, please use 'http://www.reddit.com/*'");
             return;
         }
 
@@ -82,13 +75,16 @@ var AddSubredditForm = React.createClass({
             <form id="addSubredditForm" onSubmit={this.handleSubmit}>
                 <div className="row">
                     <div className="four columns">
-                        <input type="text" placeholder="Subreddit title..." ref="title" className="u-full-width" />
+                        <input type="text" placeholder="Subreddit title..." ref="title" className="u-full-width"
+                            required />
                     </div>
                     <div className="four columns">
-                        <input type="text" placeholder="Subreddit url..." ref="url" className="u-full-width" />
+                        <input type="url" placeholder="Subreddit url..." ref="url" className="u-full-width"
+                            required />
                     </div>
                     <div className="two columns">
-                        <input type="text" placeholder="Interval..." ref="interval" className="u-full-width" />
+                        <input type="number" placeholder="Interval..." ref="interval" className="u-full-width"
+                            min="10" max="600" step="5" required />
                     </div>
                     <div className="two columns right">
                         <input type="submit" value="Add" />

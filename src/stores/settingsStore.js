@@ -5,8 +5,8 @@ var STORAGE_KEY = 'settings';
 var SettingsStore = {
     // default configuration
     redditConfig:[
-        {title:"Front", url:"http://www.reddit.com/", interval:60000},
-        {title:"World News", url:"http://www.reddit.com/r/worldnews/", interval:60000}
+        {title:"Front", url:"http://www.reddit.com/", interval:60},
+        {title:"World News", url:"http://www.reddit.com/r/worldnews/", interval:60}
     ],
 
     addItem(item) {
@@ -15,7 +15,7 @@ var SettingsStore = {
             this.save();
         }
         else {
-            alert('We should limit ourselves to a maximum of four subreddits for now.');
+            alert('A maximum of four subreddits can be monitored for now.');
         }
     },
 
@@ -25,7 +25,7 @@ var SettingsStore = {
             this.save();
         }
         else {
-            alert('We should keep at least one subreddit active.');
+            alert('There should be at least one subreddit active.');
         }
     },
 

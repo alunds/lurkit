@@ -1,5 +1,6 @@
 var SettingsStore = require('./stores/SettingsStore');
 var getColumnSpan = require('./utils/getColumnSpan');
+var getThumbnail = require('./utils/getThumbnail');
 var constants = require('./utils/constants');
 
 var Subreddits = React.createClass({
@@ -49,20 +50,10 @@ var Subreddit = React.createClass({
 
 var SubredditItemList = React.createClass({
     render: function() {
-        var getThumbnail = function(url)
-        {
-            return (url == "" ||
-            url == "self" ||
-            url == "nsfw" ||
-            url == "default") ?
-                <span>&nbsp;</span> :
-                <img src={url} className="u-max-full-width" />;
-        };
-
         var items = this.props.data.map(function (item, i) {
             return (
                 <div key={i} className="row">
-                    <div className="one columns">
+                    <div className="one columns score">
                         <i>{item.data.score}</i>
                     </div>
                     <div className="one columns">
