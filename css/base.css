@@ -22,10 +22,8 @@ div#app {
 }
 div .reddit {
     margin-bottom: 25px;
-    background-color: #f6f6f6;
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
-    border: 2px solid #f0f0f0;
 }
 div .score {
     font-size: .85em;
