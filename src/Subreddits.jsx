@@ -62,7 +62,7 @@ var SubredditItemList = React.createClass({
                         {getThumbnail(item.data.thumbnail)}
                     </div>
                     <div className="eight columns">
-                        <strong><a href={item.data.url}>{item.data.title}</a></strong>
+                        <strong><a href={item.data.url}>{item.data.title.replace("&amp;", "&")}</a></strong>
                     </div>
                     <div className="two columns comments">
                         <a href={constants.REDDIT_BASE_URL.concat(item.data.permalink)}>{item.data.num_comments} comments</a>
