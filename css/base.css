@@ -13,6 +13,7 @@ a:hover {
 }
 h6 {
     text-align: center;
+    letter-spacing: 5px;
 }
 form {
     margin: 0;
@@ -26,7 +27,7 @@ div .reddit {
     border-radius: 5px;
 }
 div .score {
-    font-size: .85em;
+    font-size: .75em;
 }
 div .comments {
     font-size: .65em;
@@ -37,6 +38,7 @@ div .reddit .row {
     background-color: #f0f0f0;
     border-radius: 5px;
     border: 1px solid #e0e0e0;
+    padding: 4px 4px 4px 4px;
 }
 div .reddit .row:hover{
     background-color: #f6f6f6;
