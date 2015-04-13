@@ -56,17 +56,13 @@ var SubredditItemList = React.createClass({
         var items = this.props.data.map(function (item, i) {
             return (
                 <div key={i} className="row">
-                    <div className="one columns score">
-                        <i>{item.data.score}</i>
-                    </div>
-                    <div className="one columns">
+                    <div className="two columns">
                         {getThumbnail(item.data.thumbnail)}
                     </div>
-                    <div className="eight columns">
+                    <div className="ten columns">
                         <strong><a href={item.data.url}>{item.data.title.replace("&amp;", "&")}</a></strong>
-                    </div>
-                    <div className="two columns comments">
-                        <a href={constants.REDDIT_BASE_URL.concat(item.data.permalink)}>{item.data.num_comments} comments</a>
+                        <br />
+                        <div className="stats"><i>{item.data.score}</i> points | <a href={constants.REDDIT_BASE_URL.concat(item.data.permalink)}>{item.data.num_comments} comments</a></div>
                     </div>
                 </div>
             );

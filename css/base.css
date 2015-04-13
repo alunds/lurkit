@@ -26,19 +26,15 @@ div .reddit {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
 }
-div .score {
-    font-size: .75em;
-}
-div .comments {
-    font-size: .65em;
-    overflow: hidden;
-}
 div .reddit .row {
     margin-bottom: 5px;
     background-color: #f0f0f0;
     border-radius: 5px;
     border: 1px solid #e0e0e0;
     padding: 4px 4px 4px 4px;
+}
+div .stats {
+    font-size: .80em;
 }
 div .reddit .row:hover{
     background-color: #f6f6f6;
@@ -51,6 +47,9 @@ div .settings {
 }
 div .right {
     text-align: right;
+}
+img {
+    border:1px solid #e0e0e0;
 }
 input[type="submit"],
 input[type="text"],
