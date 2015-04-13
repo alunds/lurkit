@@ -4,7 +4,7 @@ var SettingsStore = require('./stores/SettingsStore');
 
 var Settings = React.createClass({
     handleAddSubreddit: function(subreddit) {
-        SettingsStore.addItem({title: subreddit.title, url: subreddit.url, interval: subreddit.interval});
+        SettingsStore.addItem({url: subreddit.url, interval: subreddit.interval});
         this.props.onSettingsChanged(SettingsStore.redditConfig);
     },
     handleRemoveSubreddit: function() {
@@ -14,10 +14,7 @@ var Settings = React.createClass({
         var items = this.props.data.map(function (item, i) {
             return (
                 <div key={i} className="row">
-                    <div className="four columns">
-                        {item.title}
-                    </div>
-                    <div className="four columns">
+                    <div className="eight columns">
                         <a href={item.url}>{item.url}</a>
                     </div>
                     <div className="two columns">
@@ -55,7 +52,6 @@ var AddSubredditForm = React.createClass({
     handleSubmit: function(e) {
         e.preventDefault();
 
-        var title = React.findDOMNode(this.refs.title).value.trim();
         var url = React.findDOMNode(this.refs.url).value.trim();
         var interval = React.findDOMNode(this.refs.interval).value.trim();
 
@@ -64,9 +60,8 @@ var AddSubredditForm = React.createClass({
             return;
         }
 
-        this.props.onFormSubmit({title: title, url: url, interval: interval});
+        this.props.onFormSubmit({url: url, interval: interval});
 
-        React.findDOMNode(this.refs.title).value = '';
         React.findDOMNode(this.refs.url).value = '';
         React.findDOMNode(this.refs.interval).value = '';
     },
@@ -74,11 +69,7 @@ var AddSubredditForm = React.createClass({
         return (
             <form id="addSubredditForm" onSubmit={this.handleSubmit}>
                 <div className="row">
-                    <div className="four columns">
-                        <input type="text" placeholder="Subreddit title..." ref="title" className="u-full-width"
-                            required />
-                    </div>
-                    <div className="four columns">
+                    <div className="eight columns">
                         <input type="url" placeholder="Subreddit url..." ref="url" className="u-full-width"
                             required />
                     </div>

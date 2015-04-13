@@ -3,13 +3,14 @@ var React = require("react");
 var SettingsStore = require('./stores/SettingsStore');
 var getColumnSpan = require('./utils/getColumnSpan');
 var getThumbnail = require('./utils/getThumbnail');
+var getTitle = require('./utils/getTitle');
 var constants = require('./utils/constants');
 
 var Subreddits = React.createClass({
     render: function() {
         var subreddits = this.props.data.map(function (subreddit) {
             return (
-                <Subreddit key={subreddit.title} title={subreddit.title} url={subreddit.url} interval={subreddit.interval} />
+                <Subreddit key={subreddit.url} url={subreddit.url} interval={subreddit.interval} />
             );
         });
         return (
@@ -43,7 +44,7 @@ var Subreddit = React.createClass({
     render: function() {
         return (
             <div className={getColumnSpan(SettingsStore.redditConfig.length, 12)}>
-                <h6>{this.props.title}</h6>
+                <h6>{getTitle(this.props.url, this.state.data[0])}</h6>
                 <SubredditItemList data={this.state.data} />
             </div>
         );
