@@ -1,5 +1,7 @@
-function getTitle (subredditUrl, data) {
-    if (subredditUrl.indexOf("/r/") == -1)
+var isFront = require('./isFront');
+
+function getTitle (redditUrl, data) {
+    if (isFront(redditUrl))
         return "front";
     else if (data == "undefined" || data == null)
         return "";

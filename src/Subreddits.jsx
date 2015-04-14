@@ -4,6 +4,7 @@ var SettingsStore = require('./stores/SettingsStore');
 var getColumnSpan = require('./utils/getColumnSpan');
 var getThumbnail = require('./utils/getThumbnail');
 var getTitle = require('./utils/getTitle');
+var isFront = require('./utils/isFront');
 var constants = require('./utils/constants');
 
 var Subreddits = React.createClass({
@@ -45,7 +46,7 @@ var Subreddit = React.createClass({
         return (
             <div className={getColumnSpan(SettingsStore.redditConfig.length, 12)}>
                 <h6>{getTitle(this.props.url, this.state.data[0])}</h6>
-                <SubredditItemList data={this.state.data} />
+                <SubredditItemList url={this.props.url} data={this.state.data} />
             </div>
         );
     }
@@ -53,24 +54,47 @@ var Subreddit = React.createClass({
 
 var SubredditItemList = React.createClass({
     render: function() {
+        var front = isFront(this.props.url);
         var items = this.props.data.map(function (item, i) {
-            return (
-                <div key={i} className="row">
-                    <div className="two columns">
-                        {getThumbnail(item.data.thumbnail)}
+            if (front)
+                return (
+                    <div key={i} className="row">
+                        <div className="bg" style={{backgroundImage: 'url(' + item.data.thumbnail + ')'}} />
+                        <div>
+                            <div className="two columns">
+	                            {getThumbnail(item.data.thumbnail)}
+                            </div>
+                            <div className="ten columns">
+                                <Post data={item.data} />
+                            </div>
+                        </div>
                     </div>
-                    <div className="ten columns">
-                        <strong><a href={item.data.url}>{item.data.title.replace("&amp;", "&")}</a></strong>
-                        <br />
-                        <div className="stats"><i>{item.data.score}</i> points | <a href={constants.REDDIT_BASE_URL.concat(item.data.permalink)}>{item.data.num_comments} comments</a></div>
+                );
+            else
+                return (
+                    <div key={i} className="row">
+                        <Post data={item.data} />
                     </div>
-                </div>
-            );
+                );
         });
 
         return (
             <div>{items}</div>
         );
+    }
+});
+
+var Post = React.createClass({
+    render: function() {
+        return (
+            <div>
+                <strong><a href={this.props.data.url}>{this.props.data.title.replace("&amp;", "&")}</a></strong>
+                <br />
+                <div className="stats">
+                    <i>{this.props.data.score}</i> points | <a href={constants.REDDIT_BASE_URL.concat(this.props.data.permalink)}>{this.props.data.num_comments} comments</a>
+                </div>
+            </div>
+        )
     }
 });
 

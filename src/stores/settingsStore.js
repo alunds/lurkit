@@ -9,7 +9,7 @@ var SettingsStore = {
         {url:"http://www.reddit.com/r/worldnews/", interval:60}
     ],
 
-    addItem(item) {
+    add(item) {
         if (this.redditConfig.length < 4) {
             this.redditConfig.push(item);
             this.save();

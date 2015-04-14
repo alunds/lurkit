@@ -5,11 +5,11 @@ html,body {
 }
 a {
     text-decoration:none;
-    color: #0088FF;
+    color: #0077ee;
 }
 a:hover {
-    color: #58b2ff;
     text-decoration:none;
+    color: #65b2ff;
 }
 h6 {
     text-align: center;
@@ -27,16 +27,40 @@ div .reddit {
     border-radius: 5px;
 }
 div .reddit .row {
+    position: relative;
+    z-index: 1;
     margin-bottom: 5px;
     background-color: #f0f0f0;
     border-radius: 5px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #c8c8c8;
     padding: 4px 4px 4px 4px;
+    text-shadow:
+        -1px -1px 0 #fcfcfc,
+        1px -1px 0 #fcfcfc,
+        -1px 1px 0 #fcfcfc,
+        1px 1px 0 #fcfcfc,
+        -1px -1px 15px #f0f0f0,
+        1px -1px 15px #f0f0f0,
+        -1px 1px 15px #f0f0f0,
+        1px 1px 15px #f0f0f0;
+}
+div .reddit .row .bg {
+    background-repeat: repeat;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .25;
+    width: 100%;
+    height: 100%;
 }
 div .stats {
+    border-top: 1px solid #e0e0e0;
     font-size: .80em;
 }
-div .reddit .row:hover{
+div .reddit .row:hover {
     background-color: #f6f6f6;
 }
 div .settings {

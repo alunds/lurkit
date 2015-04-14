@@ -1,10 +1,9 @@
-function getThumbnail(url) {
-    return (url == "" ||
-            url == "self" ||
-            url == "nsfw" ||
-            url == "default") ?
+var thumbnailFilters = ["", "self", "nsfw", "default"];
+
+function getThumbnail(thumbnailUrl) {
+    return (thumbnailFilters.indexOf(thumbnailUrl) > -1) ?
         <span>&nbsp;</span> :
-        <img src={url} className="u-max-full-width" />;
+        <img src={thumbnailUrl} className="u-max-full-width" />;
 }
 
 module.exports = getThumbnail;

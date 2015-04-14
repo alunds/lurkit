@@ -4,7 +4,7 @@ var SettingsStore = require('./stores/SettingsStore');
 
 var Settings = React.createClass({
     handleAddSubreddit: function(subreddit) {
-        SettingsStore.addItem({url: subreddit.url, interval: subreddit.interval});
+        SettingsStore.add({url: subreddit.url, interval: subreddit.interval});
         this.props.onSettingsChanged(SettingsStore.redditConfig);
     },
     handleRemoveSubreddit: function() {
