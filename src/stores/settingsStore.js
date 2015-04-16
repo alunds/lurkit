@@ -6,7 +6,8 @@ var SettingsStore = {
     // default configuration
     redditConfig:[
         {url:"http://www.reddit.com/", interval:60},
-        {url:"http://www.reddit.com/r/worldnews/", interval:60}
+        {url:"http://www.reddit.com/r/worldnews/", interval:60},
+        {url:"http://www.reddit.com/r/technology/", interval:60}
     ],
 
     add(item) {
