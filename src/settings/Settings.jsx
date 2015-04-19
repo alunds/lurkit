@@ -17,13 +17,13 @@ var Settings = React.createClass({
         var items = this.props.data.map(function (item, i) {
             return (
                 <div key={i} className="row">
-                    <div className="eight columns">
+                    <div className="col-lg-8">
                         <a href={item.url}>{item.url}</a>
                     </div>
-                    <div className="two columns">
+                    <div className="col-lg-3">
                         {item.interval} seconds
                     </div>
-                    <div className="two columns right">
+                    <div className="col-lg-1 text-right">
                         <RemoveSubreddit index={i} onRemoveSubreddit={this.handleRemoveSubreddit} />
                     </div>
                 </div>

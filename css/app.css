@@ -11,12 +11,16 @@ a:hover {
     text-decoration:none;
     color: #65b2ff;
 }
-h6 {
-    text-align: center;
-    letter-spacing: 5px;
+img {
+    width:100%;
+    max-width:100px;
+    border:1px solid #e0e0e0;
 }
-form {
-    margin: 0;
+h3 {
+    text-align: center;
+    letter-spacing: 7px;
+    margin-top:5px;
+    margin-bottom:15px;
 }
 div#app {
     padding: 10px 20px 10px 20px;
@@ -52,7 +56,7 @@ div .reddit .row .bg {
     bottom: 0;
     left: 0;
     right: 0;
-    opacity: .25;
+    opacity: .2;
     width: 100%;
     height: 100%;
 }
@@ -69,12 +73,6 @@ div .settings {
     border-radius: 5px;
     border: 2px solid #f0f0f0;
 }
-div .right {
-    text-align: right;
-}
-img {
-    border:1px solid #e0e0e0;
-}
 input[type="submit"],
 input[type="text"],
 input[type="url"],
@@ -82,8 +80,9 @@ input[type="number"] {
     height: 30px;
     line-height: 30px;
     padding: 0 10px 0;
+    width: 100%;
 }
 hr {
-    margin-top:1rem;
-    margin-bottom:1rem;
+    margin-top:.5rem;
+    margin-bottom:.5rem;
 }

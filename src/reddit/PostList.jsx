@@ -13,10 +13,10 @@ var PostList = React.createClass({
                     <div key={i} className="row">
                         <div className="bg" style={{backgroundImage: 'url(' + item.data.thumbnail + ')'}} />
                         <div>
-                            <div className="two columns">
+                            <div className="col-lg-2">
 	                            {getThumbnail(item.data.thumbnail)}
                             </div>
-                            <div className="ten columns">
+                            <div className="col-lg-10">
                                 <Post data={item.data} />
                             </div>
                         </div>

@@ -21,16 +21,14 @@ var AddSubredditForm = React.createClass({
         return (
             <form id="addSubredditForm" onSubmit={this.handleSubmit}>
                 <div className="row">
-                    <div className="eight columns">
-                        <input type="url" placeholder="Subreddit url..." ref="url" className="u-full-width"
-                            required />
+                    <div className="col-lg-8">
+                        <input className="form-control" type="url" placeholder="Reddit url..." ref="url" required />
                     </div>
-                    <div className="two columns">
-                        <input type="number" placeholder="Interval..." ref="interval" className="u-full-width"
-                            min="10" max="600" step="5" required />
+                    <div className="col-lg-3">
+                        <input className="form-control" type="number" placeholder="Refresh interval..." ref="interval" min="10" max="600" step="5" required />
                     </div>
-                    <div className="two columns right">
-                        <input type="submit" value="Add" />
+                    <div className="col-lg-1 pull-right">
+                        <input className="form-control" type="submit" value="Add" />
                     </div>
                 </div>
             </form>

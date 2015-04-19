@@ -11,7 +11,7 @@ var App = React.createClass({
     },
     render: function() {
         return (
-            <div>
+            <div className="container-fluid">
                 <SubredditList data={this.props.data} />
                 <Settings data={this.props.data} onSettingsChanged={this.handleSettingsChanged} />
             </div>
