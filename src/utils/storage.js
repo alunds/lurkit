@@ -1,4 +1,4 @@
-module.exports = {
+var storage = {
     get(key) {
         var value = localStorage[key];
         return (typeof value != 'undefined' ? value : null)
@@ -7,3 +7,5 @@ module.exports = {
         localStorage[key] = value;
     }
 };
+
+module.exports = storage;

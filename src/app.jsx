@@ -1,9 +1,8 @@
 var React = require("react");
+var SubredditList = require('./reddit/SubredditList.jsx');
+var Settings = require('./settings/Settings.jsx');
 
 var SettingsStore = require('./stores/SettingsStore');
-var Settings = require('./Settings.jsx');
-var Subreddits = require('./Subreddits.jsx');
-
 SettingsStore.load();
 
 var App = React.createClass({
@@ -13,7 +12,7 @@ var App = React.createClass({
     render: function() {
         return (
             <div>
-                <Subreddits data={this.props.data} />
+                <SubredditList data={this.props.data} />
                 <Settings data={this.props.data} onSettingsChanged={this.handleSettingsChanged} />
             </div>
         );
