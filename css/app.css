@@ -88,7 +88,37 @@ hr {
     margin-top:.5rem;
     margin-bottom:.5rem;
 }
-.centered{
+.centered {
     float: none;
     margin: 0 auto;
+}
+.loading {
+    text-align: center;
+}
+.spinner {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    background-color: #666;
+    border-radius: 100%;
+    -webkit-animation: scaleOut 1s infinite ease-in-out;
+    animation: scaleOut 1s infinite ease-in-out;
+}
+@-webkit-keyframes scaleOut {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0); }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0; }
+}
+@keyframes scaleOut {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0); }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0; }
 }

@@ -26,6 +26,17 @@ var Subreddit = React.createClass({
         setInterval(this.loadItemsFromServer, this.props.interval * 1000);
     },
     render: function() {
+        if (this.state.data.length == 0)
+            return (
+                <div className={getColumnSpan(SettingsStore.redditConfig.length)}>
+                    <div className="reddit centered">
+                        <div className="loading">
+                            <span>Loading</span>
+                            <div className="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+            );
         return (
             <div className={getColumnSpan(SettingsStore.redditConfig.length)}>
                 <div className="reddit centered">
