@@ -70,9 +70,10 @@ div .reddit .row:hover {
 }
 div .settings {
     background-color: #f6f6f6;
-    padding: 5px 5px 5px 5px;
     border-radius: 5px;
     border: 2px solid #f0f0f0;
+    padding: 5px 5px 5px 5px;
+    max-width: 600px;
 }
 input[type="submit"],
 input[type="text"],

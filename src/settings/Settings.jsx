@@ -17,13 +17,13 @@ var Settings = React.createClass({
         var items = this.props.data.map(function (item, i) {
             return (
                 <div key={i} className="row">
-                    <div className="col-lg-8">
+                    <div className="col-lg-7">
                         <a href={item.url}>{item.url}</a>
                     </div>
                     <div className="col-lg-3">
                         {item.interval} seconds
                     </div>
-                    <div className="col-lg-1 text-right">
+                    <div className="col-lg-2 text-right">
                         <RemoveSubreddit index={i} onRemoveSubreddit={this.handleRemoveSubreddit} />
                     </div>
                 </div>
@@ -31,7 +31,7 @@ var Settings = React.createClass({
         }.bind(this));
 
         return (
-            <div className="container settings">
+            <div className="settings centered">
                 {items}
                 <hr />
                 <AddSubredditForm onFormSubmit={this.handleAddSubreddit} />
