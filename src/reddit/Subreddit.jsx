@@ -28,7 +28,7 @@ var Subreddit = React.createClass({
     render: function() {
         return (
             <div className={getColumnSpan(SettingsStore.redditConfig.length)}>
-                <div className="reddit">
+                <div className="reddit centered">
                     <h3>{getTitle(this.props.url, this.state.data[0])}</h3>
                     <PostList url={this.props.url} data={this.state.data} />
                 </div>
