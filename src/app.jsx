@@ -21,4 +21,4 @@ var App = React.createClass({
 
 React.render(
     <App data={SettingsStore.redditConfig} />,
-    document.getElementById('app'));
+document.getElementById('app'));

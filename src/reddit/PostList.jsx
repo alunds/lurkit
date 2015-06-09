@@ -1,14 +1,13 @@
 var React = require("react");
 var Post = require('./Post.jsx');
 
-var isFront = require('./../utils/isFront');
 var getThumbnail = require('./../utils/getThumbnail');
 
 var PostList = React.createClass({
     render: function() {
-        var front = isFront(this.props.url);
+        var showThumbs = this.props.showThumbs;
         var items = this.props.data.map(function (item, i) {
-            if (front)
+            if (showThumbs)
                 return (
                     <div key={i} className="row">
                         <div className="bg" style={{backgroundImage: 'url(' + item.data.thumbnail + ')'}} />

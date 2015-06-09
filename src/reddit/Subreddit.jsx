@@ -41,7 +41,7 @@ var Subreddit = React.createClass({
             <div className={getColumnSpan(SettingsStore.redditConfig.length)}>
                 <div className="reddit centered">
                     <h3>{getTitle(this.props.url, this.state.data[0])}</h3>
-                    <PostList url={this.props.url} data={this.state.data} />
+                    <PostList url={this.props.url} showThumbs={this.props.showThumbs} data={this.state.data} />
                 </div>
             </div>
         );
