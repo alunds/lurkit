@@ -24,7 +24,7 @@ var Subreddit = React.createClass({
     },
     componentDidMount: function() {
         this.loadItemsFromServer();
-        setInterval(this.loadItemsFromServer, this.props.interval * 1000);
+        setInterval(this.loadItemsFromServer, SettingsStore.interval * 1000);
     },
     render: function() {
         if (this.state.data.length == 0)

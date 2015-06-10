@@ -1,13 +1,15 @@
 var storage = require('../utils/storage');
+var unpack = require('../utils/unpack');
 
 var STORAGE_KEY = 'settings';
 
 var SettingsStore = {
     // default configuration
+    interval: 60,
     redditConfig:[
-        {url:"/", interval:60, showThumbs:true},
-        {url:"/r/worldnews/", interval:60, showThumbs:false},
-        {url:"/r/technology/", interval:60, showThumbs:false}
+        {url:"/", showThumbs:true},
+        {url:"/r/worldnews/", showThumbs:false},
+        {url:"/r/technology/", showThumbs:false}
     ],
 
     add(item) {
@@ -33,12 +35,16 @@ var SettingsStore = {
     load() {
         var json = storage.get(STORAGE_KEY);
         if (json) {
-            this.redditConfig = JSON.parse(json);
+            unpack(JSON.parse(json), this);
         }
     },
 
     save() {
-        storage.set(STORAGE_KEY, JSON.stringify(this.redditConfig));
+        storage.set(STORAGE_KEY, JSON.stringify(
+            {
+                interval: this.interval,
+                redditConfig: this.redditConfig
+            }));
     }
 };
 

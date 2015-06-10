@@ -5,7 +5,6 @@ var AddSubredditForm = React.createClass({
         e.preventDefault();
 
         var url = React.findDOMNode(this.refs.url).value.trim();
-        var interval = React.findDOMNode(this.refs.interval).value.trim();
         var showThumbs = React.findDOMNode(this.refs.showThumbs).checked;
 
         if (url.length == 0 ||
@@ -14,23 +13,19 @@ var AddSubredditForm = React.createClass({
             return;
         }
 
-        this.props.onFormSubmit({url: url, interval: interval, showThumbs: showThumbs});
+        this.props.onFormSubmit({url: url, showThumbs: showThumbs});
 
         React.findDOMNode(this.refs.url).value = '';
-        React.findDOMNode(this.refs.interval).value = '';
-        React.findDOMNode(this.refs.showThumbs).reset();
+        React.findDOMNode(this.refs.showThumbs).checked = false;
     },
     render: function() {
         return (
             <form id="addSubredditForm" onSubmit={this.handleSubmit}>
                 <div className="row">
-                    <div className="col-lg-5">
-                        <input className="form-control" type="text" placeholder="Reddit url (eg '/r/food/') ..." ref="url" required />
+                    <div className="col-lg-7">
+                        <input className="form-control" type="text" placeholder="Reddit sub-url only (eg '/r/food/') ..." ref="url" required />
                     </div>
                     <div className="col-lg-3">
-                        <input className="form-control" type="number" placeholder="Interval ..." ref="interval" min="10" max="600" step="5" required />
-                    </div>
-                    <div className="col-lg-2">
                         <input className="form-control" type="checkbox" ref="showThumbs" />
                     </div>
                     <div className="col-lg-2 pull-right">
