@@ -8,8 +8,9 @@ var AddSubredditForm = React.createClass({
         var interval = React.findDOMNode(this.refs.interval).value.trim();
         var showThumbs = React.findDOMNode(this.refs.showThumbs).checked;
 
-        if (url.length < 22 || url.substring(0, 22) != "http://www.reddit.com/") {
-            alert("Invalid reddit url, please use 'http://www.reddit.com/*'");
+        if (url.length == 0 ||
+            (url != "/" && url.substring(0, 3) != "/r/")) {
+            alert("Invalid reddit url, please use '/r/*/'");
             return;
         }
 
@@ -23,13 +24,13 @@ var AddSubredditForm = React.createClass({
         return (
             <form id="addSubredditForm" onSubmit={this.handleSubmit}>
                 <div className="row">
-                    <div className="col-lg-6">
-                        <input className="form-control" type="url" placeholder="Reddit url..." ref="url" required />
+                    <div className="col-lg-5">
+                        <input className="form-control" type="text" placeholder="Reddit url (eg '/r/food/') ..." ref="url" required />
                     </div>
                     <div className="col-lg-3">
-                        <input className="form-control" type="number" placeholder="Interval..." ref="interval" min="10" max="600" step="5" required />
+                        <input className="form-control" type="number" placeholder="Interval ..." ref="interval" min="10" max="600" step="5" required />
                     </div>
-                    <div className="col-lg-1">
+                    <div className="col-lg-2">
                         <input className="form-control" type="checkbox" ref="showThumbs" />
                     </div>
                     <div className="col-lg-2 pull-right">

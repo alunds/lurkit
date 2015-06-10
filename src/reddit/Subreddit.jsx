@@ -2,13 +2,14 @@ var React = require("react");
 var PostList = require('./PostList.jsx');
 
 var SettingsStore = require('./../stores/SettingsStore');
+var constants = require('./../utils/constants');
 var getColumnSpan = require('./../utils/getColumnSpan');
 var getTitle = require('./../utils/getTitle');
 
 var Subreddit = React.createClass({
     loadItemsFromServer: function() {
         $.ajax({
-            url: this.props.url.concat('.json'),
+            url: constants.REDDIT_BASE_URL.concat(this.props.url.concat('.json')),
             dataType: 'json',
             success: function(data) {
                 this.setState({data: data.data.children});

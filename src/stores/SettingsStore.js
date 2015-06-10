@@ -5,9 +5,9 @@ var STORAGE_KEY = 'settings';
 var SettingsStore = {
     // default configuration
     redditConfig:[
-        {url:"http://www.reddit.com/", interval:60, showThumbs:true},
-        {url:"http://www.reddit.com/r/worldnews/", interval:60, showThumbs:false},
-        {url:"http://www.reddit.com/r/technology/", interval:60, showThumbs:false}
+        {url:"/", interval:60, showThumbs:true},
+        {url:"/r/worldnews/", interval:60, showThumbs:false},
+        {url:"/r/technology/", interval:60, showThumbs:false}
     ],
 
     add(item) {
