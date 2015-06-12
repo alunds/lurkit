@@ -12,7 +12,7 @@ var SettingsStore = {
         {url:"/r/technology/", showThumbs:false}
     ],
 
-    add(item) {
+    addReddit(item) {
         if (this.redditConfig.length < 4) {
             this.redditConfig.push(item);
             this.save();
@@ -22,7 +22,7 @@ var SettingsStore = {
         }
     },
 
-    remove(index) {
+    removeReddit(index) {
         if (this.redditConfig.length > 1) {
             this.redditConfig.splice(index, 1);
             this.save();
@@ -30,6 +30,11 @@ var SettingsStore = {
         else {
             alert('There should be at least one subreddit active.');
         }
+    },
+
+    updateThumbnails(index) {
+        this.redditConfig[index].showThumbs = !this.redditConfig[index].showThumbs;
+        this.save();
     },
 
     load() {

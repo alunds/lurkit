@@ -12,7 +12,7 @@ var App = React.createClass({
     render: function() {
         return (
             <div className="container-fluid">
-                <SubredditList data={this.props.data} />
+                <SubredditList data={this.props.data.redditConfig} />
                 <Settings data={this.props.data} onSettingsChanged={this.handleSettingsChanged} />
             </div>
         );
@@ -20,5 +20,5 @@ var App = React.createClass({
 });
 
 React.render(
-    <App data={SettingsStore.redditConfig} />,
+    <App data={SettingsStore} />,
     document.getElementById('app'));

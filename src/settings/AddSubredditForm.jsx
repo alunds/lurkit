@@ -23,7 +23,7 @@ var AddSubredditForm = React.createClass({
             <form id="addSubredditForm" onSubmit={this.handleSubmit}>
                 <div className="row">
                     <div className="col-lg-7">
-                        <input className="form-control" type="text" placeholder="Reddit sub-url only (eg '/r/food/') ..." ref="url" required />
+                        <input className="form-control" type="text" placeholder="Reddit sub-url (eg '/r/food/') ..." ref="url" required />
                     </div>
                     <div className="col-lg-3">
                         <input className="form-control" type="checkbox" ref="showThumbs" />
