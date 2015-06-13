@@ -37,6 +37,15 @@ var SettingsStore = {
         this.save();
     },
 
+    restoreDefault() {
+        this.redditConfig = [
+            {url:"/", showThumbs:true},
+            {url:"/r/worldnews/", showThumbs:false},
+            {url:"/r/technology/", showThumbs:false}
+        ];
+        this.save();
+    },
+
     load() {
         var json = storage.get(STORAGE_KEY);
         if (json) {

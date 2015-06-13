@@ -2,7 +2,6 @@ var React = require("react");
 var AddSubredditForm = require("./AddSubredditForm.jsx");
 var RemoveSubreddit = require("./RemoveSubreddit.jsx");
 var ThumbnailToggle = require("./ThumbnailToggle.jsx");
-//var GlobalSettings = require("./GlobalSettings.jsx");
 
 var SettingsStore = require('./../stores/SettingsStore');
 var constants = require('./../utils/constants');
@@ -18,6 +17,11 @@ var Settings = React.createClass({
     },
     handleThumbnailToggle: function(index) {
         SettingsStore.updateThumbnails(index);
+        this.props.onSettingsChanged(SettingsStore);
+    },
+    restoreDefault: function(e) {
+        e.preventDefault();
+        SettingsStore.restoreDefault();
         this.props.onSettingsChanged(SettingsStore);
     },
     render: function() {
@@ -51,6 +55,8 @@ var Settings = React.createClass({
                 {items}
                 <hr />
                 <AddSubredditForm onFormSubmit={this.handleAddSubreddit} />
+                <hr />
+                <a href onClick={this.restoreDefault}>Restore default settings</a>
             </div>
         );
     }
