@@ -29,7 +29,7 @@ var Settings = React.createClass({
             return (
                 <div key={i} className="row">
                     <div className="col-lg-7">
-                        reddit.com<a href={constants.REDDIT_BASE_URL.concat(item.url)}>{item.url}</a>
+                        <span className="lighter">reddit.com</span><a href={constants.REDDIT_BASE_URL.concat(item.url)}>{item.url}</a>
                     </div>
                     <div className="col-lg-3">
                         <ThumbnailToggle index={i} onThumbnailToggle={this.handleThumbnailToggle} data={item.showThumbs} />
@@ -56,7 +56,7 @@ var Settings = React.createClass({
                 <hr />
                 <AddSubredditForm onFormSubmit={this.handleAddSubreddit} />
                 <hr />
-                <a href onClick={this.restoreDefault}>Restore default settings</a>
+                <a href className="stats pull-right" onClick={this.restoreDefault}>Restore default settings</a>
             </div>
         );
     }

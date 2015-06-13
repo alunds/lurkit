@@ -99,6 +99,9 @@ hr {
 .loading {
     text-align: center;
 }
+.lighter {
+    color: #888;
+}
 .spinner {
     width: 20px;
     height: 20px;
