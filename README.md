@@ -2,7 +2,7 @@
 
 Monitor your favourite subreddits in a self-updating single page.
 
-Live version: [http://alunds.github.io/lurkit/](http://alunds.github.io/lurkit/)
+Live version: (removed)
 
 Built with [React](http://facebook.github.io/react/).
 
